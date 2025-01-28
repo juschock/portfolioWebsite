@@ -79,12 +79,11 @@ export default function ContactPage() {
         <div className="card mt-6 sm:mt-8">
           <h2 className="heading-2">Location & Availability</h2>
           <p className="body-text">
-            Based in Northern Virginia, with active security clearance. Available for remote work and local opportunities in the DC Metro area.
+            Based in Northern Virginia. Available for remote work and local opportunities in the DC Metro area.
           </p>
           <div className="mt-4 flex flex-wrap gap-2 sm:gap-3">
             <span className="badge badge-blue">Remote</span>
             <span className="badge badge-purple">DC Metro</span>
-            <span className="badge badge-green">Security Cleared</span>
           </div>
         </div>
       </main>
