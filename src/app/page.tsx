@@ -202,12 +202,12 @@ export default function Home() {
             <div className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
               <h3 className="text-xl font-semibold mb-3 text-gray-800">File Management System</h3>
               <p className="text-gray-600 mb-4">
-                Brief description of the fourth project. Highlight key features and technologies used.
+                Upload files and manage from your custom dashboard.
               </p>
               <div className="flex flex-wrap gap-2 mb-4">
-                <span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">Technology 1</span>
-                <span className="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm">Technology 2</span>
-                <span className="px-3 py-1 bg-teal-100 text-teal-800 rounded-full text-sm">Technology 3</span>
+                <span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">Next.js</span>
+                <span className="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm">TypeScript</span>
+                <span className="px-3 py-1 bg-teal-100 text-teal-800 rounded-full text-sm">Tailwind CSS</span>
               </div>
               <div className="flex flex-wrap gap-4">
                 <a 
