@@ -142,9 +142,10 @@ export default function Home() {
                 A multilingual content platform that illuminates content across languages. Built with Next.js and features a modern, gradient-rich design with support for multiple languages.
               </p>
               <div className="flex flex-wrap gap-2 mb-4">
-                <span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">TypeScript 94.2%</span>
-                <span className="px-3 py-1 bg-teal-100 text-teal-800 rounded-full text-sm">CSS 5.1%</span>
-                <span className="px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full text-sm">Next.js</span>
+                <span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">Next.js</span>
+                <span className="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm">TypeScript</span>
+                <span className="px-3 py-1 bg-teal-100 text-teal-800 rounded-full text-sm">Tailwind CSS</span>
+                <span className="px-3 py-1 bg-orange-100 text-orange-800 rounded-full text-sm">i18n</span>
               </div>
               <div className="flex flex-wrap gap-4">
                 <a 
@@ -164,6 +165,27 @@ export default function Home() {
                   Live Demo <span className="ml-2">→</span>
                 </a>
               </div>
+            </div>
+
+            {/* New Project Card */}
+            <div className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
+              <h3 className="text-xl font-semibold mb-3 text-gray-800">PrepperGo.com</h3>
+              <p className="text-gray-600 mb-4">
+                PrepperGo.com is a comprehensive platform for preppers, offering resources and tools to help individuals prepare for emergencies and disasters.
+              </p>
+              <div className="flex flex-wrap gap-2 mb-4">
+                <span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">React</span>
+                <span className="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm">Node.js</span>
+                <span className="px-3 py-1 bg-teal-100 text-teal-800 rounded-full text-sm">MongoDB</span>
+              </div>
+              <a 
+                href="https://www.preppergo.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center text-blue-600 hover:text-blue-800 transition-colors duration-300"
+              >
+                Visit PrepperGo.com <span className="ml-2">→</span>
+              </a>
             </div>
           </div>
         </div>

@@ -7,10 +7,10 @@ export default function ContactPage() {
       <main className="container-custom py-8 sm:py-12">
         {/* Header Card */}
         <div className="card mb-6 sm:mb-8">
-          <h1 className="heading-1 gradient-text text-3xl sm:text-4xl">Let's Connect</h1>
+          <h1 className="heading-1 gradient-text text-3xl sm:text-4xl">Let&apos;s Connect</h1>
           <p className="body-text text-lg sm:text-xl">
             Principal Engineer with extensive leadership experience in DevOps, SRE, and Full-Stack Development. 
-            Let's discuss how I can help with your technical challenges.
+            Let&apos;s discuss how I can help with your technical challenges.
           </p>
         </div>
 
