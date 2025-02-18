@@ -125,6 +125,7 @@ export default function Home() {
                 <span className="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm">TypeScript</span>
                 <span className="px-3 py-1 bg-teal-100 text-teal-800 rounded-full text-sm">Tailwind CSS</span>
               </div>
+              <div className="flex flex-wrap gap-4">
               <a 
                 href="https://github.com/juschock/portfolioWebsite"
                 target="_blank"
@@ -133,6 +134,15 @@ export default function Home() {
               >
                 View on GitHub <span className="ml-2">→</span>
               </a>
+              <a 
+                  href="https:joshuauschock.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center text-purple-600 hover:text-purple-800 transition-colors duration-300"
+                >
+                  Live Demo: Visit joshuauschock.com <span className="ml-2">→</span>
+                </a>
+                </div>
             </div>
 
             {/* Sun Sun Project Card */}
@@ -162,7 +172,7 @@ export default function Home() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center text-purple-600 hover:text-purple-800 transition-colors duration-300"
                 >
-                  Live Demo <span className="ml-2">→</span>
+                  Live Demo: Visit SunSun.ai <span className="ml-2">→</span>
                 </a>
               </div>
             </div>
@@ -182,10 +192,40 @@ export default function Home() {
                 href="https://www.preppergo.com/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center text-blue-600 hover:text-blue-800 transition-colors duration-300"
+                className="inline-flex items-center text-purple-600 hover:text-blue-800 transition-colors duration-300"
               >
-                Visit PrepperGo.com <span className="ml-2">→</span>
+                Live Demo: Visit PrepperGo.com <span className="ml-2">→</span>
               </a>
+            </div>
+
+            {/* Fourth Project Card */}
+            <div className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
+              <h3 className="text-xl font-semibold mb-3 text-gray-800">File Management System</h3>
+              <p className="text-gray-600 mb-4">
+                Brief description of the fourth project. Highlight key features and technologies used.
+              </p>
+              <div className="flex flex-wrap gap-2 mb-4">
+                <span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">Technology 1</span>
+                <span className="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm">Technology 2</span>
+                <span className="px-3 py-1 bg-teal-100 text-teal-800 rounded-full text-sm">Technology 3</span>
+              </div>
+              <div className="flex flex-wrap gap-4">
+                <a 
+                  href="https://github.com/juschock/file_management_dashbrd.git"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center text-blue-600 hover:text-blue-800 transition-colors duration-300"
+                >
+                  View on GitHub <span className="ml-2">→</span>
+                </a>
+                <a 
+                  href="https://www.fourthproject.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center text-purple-600 hover:text-purple-800 transition-colors duration-300"
+                >
+                </a>
+              </div>
             </div>
           </div>
         </div>
