@@ -1,4 +1,5 @@
 import Image from "next/image";
+import ResumeChatbot from './components/Chatbot/Chatbot';
 
 export default function Home() {
   return (
@@ -218,17 +219,12 @@ export default function Home() {
                 >
                   View on GitHub <span className="ml-2">→</span>
                 </a>
-                <a 
-                  href="https://www.fourthproject.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center text-purple-600 hover:text-purple-800 transition-colors duration-300"
-                >
-                </a>
               </div>
             </div>
           </div>
         </div>
+
+        <ResumeChatbot />
 
         {/* Footer */}
         <footer className="mt-16 text-center text-gray-500">

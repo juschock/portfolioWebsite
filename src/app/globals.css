@@ -188,3 +188,11 @@ body {
     @apply bg-gradient-to-br from-gray-900 to-gray-800;
   }
 }
+
+.chatbot-container {
+  padding: 20px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 300px;
+}
