@@ -1,18 +1,21 @@
 "use client";
 
 import React, { useState } from "react";
-import styles from "./Chatbot.module.css"; // Optional: for styling
+import styles from "./Chatbot.module.css";
 
 const LocalChatbot = () => {
   const [input, setInput] = useState("");
   const [history, setHistory] = useState<string[]>([]);
   const [loading, setLoading] = useState(false);
-  const [position, setPosition] = useState({ x: 100, y: 100 });
-  const [dragging, setDragging] = useState(false);
-  const [offset, setOffset] = useState({ x: 0, y: 0 });
-  const [size, setSize] = useState({ width: 300, height: 200 });
-  const [resizing, setResizing] = useState(false);
   const [requestCount, setRequestCount] = useState(0);
+
+  const starterQuestions = [
+    "How much Linux experience does Joshua have?",
+    "How long did Joshua serve in the U.S. Army?",
+    "What are Joshua’s primary DevOps skills?",
+    "Which programming languages is Joshua most experienced with?",
+    "Can you summarize Joshua’s professional background?",
+  ];
 
   const handleSend = async () => {
     if (!input.trim() || requestCount >= 3) return;
@@ -40,124 +43,85 @@ const LocalChatbot = () => {
     setInput("");
   };
 
-  // Drag & resize handlers remain unchanged...
-  const handleMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    setOffset({
-      x: e.clientX - rect.left,
-      y: e.clientY - rect.top,
-    });
-    setDragging(true);
+  const handleQuestionClick = (question: string) => {
+    setInput(question);
   };
 
-  const handleMouseMove = (e: MouseEvent) => {
-    if (dragging) {
-      setPosition({
-        x: e.clientX - offset.x,
-        y: e.clientY - offset.y,
-      });
-    }
+  const handleClearChat = () => {
+    setHistory([]);
+    setRequestCount(0);
   };
-
-  const handleMouseUp = () => {
-    setDragging(false);
-  };
-
-  const handleMouseDownResize = (e: React.MouseEvent<HTMLDivElement>) => {
-    e.stopPropagation();
-    setResizing(true);
-  };
-
-  const handleMouseMoveResize = (e: MouseEvent) => {
-    if (resizing) {
-      setSize({
-        width: e.clientX - position.x,
-        height: e.clientY - position.y,
-      });
-    }
-  };
-
-  const handleMouseUpResize = () => {
-    setResizing(false);
-  };
-
-  React.useEffect(() => {
-    if (dragging) {
-      window.addEventListener("mousemove", handleMouseMove);
-      window.addEventListener("mouseup", handleMouseUp);
-    } else {
-      window.removeEventListener("mousemove", handleMouseMove);
-      window.removeEventListener("mouseup", handleMouseUp);
-    }
-
-    if (resizing) {
-      window.addEventListener("mousemove", handleMouseMoveResize);
-      window.addEventListener("mouseup", handleMouseUpResize);
-    } else {
-      window.removeEventListener("mousemove", handleMouseMoveResize);
-      window.removeEventListener("mouseup", handleMouseUpResize);
-    }
-
-    return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
-      window.removeEventListener("mouseup", handleMouseUp);
-      window.removeEventListener("mousemove", handleMouseMoveResize);
-      window.removeEventListener("mouseup", handleMouseUpResize);
-    };
-  }, [dragging, resizing]);
 
   return (
     <div
-      className={styles.chatbotContainer}
-      onMouseDown={handleMouseDown}
+      className={styles.sidebarContainer}
       style={{
-        position: "absolute",
-        left: `${position.x}px`,
-        top: `${position.y}px`,
-        width: `${size.width}px`,
-        height: `${size.height}px`,
-        border: "3px solid black",
-        cursor: "move",
+        position: "fixed",
+        right: 0,
+        top: "80px", // start below header
+        width: "320px",
+        height: "calc(100vh - 80px)",
         boxSizing: "border-box",
         display: "flex",
         flexDirection: "column",
+        zIndex: 1000,
       }}
     >
-      <h2>Learn About Joshua</h2>
-      <div className={styles.chatHistory} style={{ flex: 1, overflowY: "auto" }}>
-        {history.map((msg, idx) => (
-          <p key={idx}>{msg}</p>
+      <h2 className={styles.sidebarTitle}>Learn About Joshua</h2>
+
+      <div className={styles.starterQuestions}>
+        {starterQuestions.map((q, idx) => (
+          <button
+            key={idx}
+            className={styles.questionButton}
+            onClick={() => handleQuestionClick(q)}
+            disabled={loading || requestCount >= 3}
+          >
+            {q}
+          </button>
         ))}
-        {loading && <p>Loading...</p>}
       </div>
+
+      <div className={styles.sidebarHistory}>
+        {history.map((msg, idx) => {
+          let lineClass = styles.messageLine;
+          if (msg.startsWith("You:")) {
+            lineClass += " " + styles.userLine;
+          } else if (msg.startsWith("Bot:")) {
+            lineClass += " " + styles.botLine;
+          }
+          return (
+            <p key={idx} className={lineClass}>
+              {msg}
+            </p>
+          );
+        })}
+        {loading && <p className={styles.messageLine}>Loading...</p>}
+      </div>
+
       <textarea
-        className={styles.chatInput}
+        className={styles.sidebarInput}
         value={input}
         onChange={(e) => setInput(e.target.value)}
         placeholder="Type your message..."
-        style={{ flexShrink: 0 }}
-        disabled={requestCount >= 3}
+        disabled={loading || requestCount >= 3}
       />
+
       <button
-        className={styles.sendButton}
+        className={styles.sidebarSendButton}
         onClick={handleSend}
         disabled={loading || requestCount >= 3}
-        style={{ flexShrink: 0 }}
       >
         Send
       </button>
-      <div
-        onMouseDown={handleMouseDownResize}
-        style={{
-          position: "absolute",
-          right: 0,
-          bottom: 0,
-          width: "10px",
-          height: "10px",
-          cursor: "nwse-resize",
-          backgroundColor: "gray",
-        }}
-      />
+
+      <button
+        className={styles.clearButton}
+        onClick={handleClearChat}
+        disabled={loading}
+      >
+        Clear Chat
+      </button>
     </div>
   );
 };

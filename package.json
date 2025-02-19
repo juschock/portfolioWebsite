@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "next": "^15.1.7",
-    "node-llama-cpp": "^3.5.0",
     "openai": "^4.85.1",
     "react": "^19.0.0",
     "react-chatbot-kit": "^2.2.2",

@@ -1,5 +1,5 @@
 'use client';
-import '@/app/globals.css';
+import '../globals.css';
 
 export default function ContactPage() {
   return (

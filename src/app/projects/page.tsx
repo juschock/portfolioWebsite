@@ -1,4 +1,4 @@
-import '@/app/globals.css';
+import '../globals.css';
 
 export default function ProjectsPage() {
   return (
@@ -122,10 +122,10 @@ export default function ProjectsPage() {
           </div>
         </div>
 
-        {/* Footer */}
+        {/* Footer
         <footer className="text-center text-gray-500 pt-4 sm:pt-8">
           <p>&copy; {new Date().getFullYear()} Joshua R. Uschock</p>
-        </footer>
+        </footer> */}
       </main>
     </div>
   );
