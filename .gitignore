@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Ignore specific path
+/Users/joshuauschock/Desktop/dev/githubPortfolio/portfolio_website/.env.local

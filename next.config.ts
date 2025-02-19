@@ -72,6 +72,9 @@ const nextConfig: NextConfig = {
     }
     return config;
   },
+  experimental: {
+    turbo: false,
+  },
 };
 
 export default nextConfig;

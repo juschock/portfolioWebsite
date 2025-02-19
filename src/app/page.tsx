@@ -141,7 +141,7 @@ export default function Home() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center text-purple-600 hover:text-purple-800 transition-colors duration-300"
                 >
-                  Live Demo: Visit joshuauschock.com <span className="ml-2">→</span>
+                  Live Demo: Visit <span className="ml-2">→</span>
                 </a>
                 </div>
             </div>
