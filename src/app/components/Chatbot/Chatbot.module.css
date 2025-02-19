@@ -7,14 +7,37 @@
     display: flex;
     flex-direction: column;
     z-index: 1000;
+    position: fixed;
+    top: 80px; /* stays below header */
+    right: 0;
+    width: 320px;  /* default width */
+    height: calc(100vh - 80px);
   }
   
+  /* Responsive adjustments for medium screens */
+  @media (max-width: 768px) {
+    .sidebarContainer {
+      width: 30vw; /* Adjust width for smaller screens */
+      right: 5vw; /* Adjust position for smaller screens */
+    }
+  }
+  
+  /* Responsive adjustments for small screens (e.g. mobile) */
+  @media (max-width: 480px) {
+    .sidebarContainer {
+      width: 40vw; /* Further adjust width for very small screens */
+      right: 10vw; /* Further adjust position for very small screens */
+    }
+  }
+  
+  /* Title styling */
   .sidebarTitle {
     font-size: 1.25rem;
     font-weight: bold;
     margin-bottom: 1rem;
   }
   
+  /* Starter questions section */
   .starterQuestions {
     display: flex;
     flex-wrap: wrap;
@@ -36,6 +59,7 @@
     background-color: #ddd;
   }
   
+  /* Chat history container */
   .sidebarHistory {
     flex: 1;
     background: #fff;
@@ -46,17 +70,20 @@
     overflow-y: auto;
   }
   
+  /* General message styling */
   .messageLine {
     margin: 10px 0;
     line-height: 1.6;
     word-wrap: break-word;
   }
   
+  /* Styling for user messages */
   .userLine {
     color: #0366d6;
     font-weight: 500;
   }
   
+  /* Styling for bot messages */
   .botLine {
     color: #333;
     background-color: #f1f3f5;
@@ -64,6 +91,7 @@
     border-radius: 4px;
   }
   
+  /* Input field styling */
   .sidebarInput {
     width: 100%;
     padding: 8px;
@@ -77,6 +105,7 @@
     border-color: #0070f3;
   }
   
+  /* Send button styling */
   .sidebarSendButton {
     width: 100%;
     padding: 8px;
@@ -98,6 +127,7 @@
     cursor: not-allowed;
   }
   
+  /* Clear Chat button styling */
   .clearButton {
     width: 100%;
     padding: 8px;
@@ -118,5 +148,38 @@
   .clearButton:disabled {
     background: #ccc;
     cursor: not-allowed;
+  }
+  
+  /* Global layout grid */
+  .layoutContainer {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 16px;
+    /* Ensure the grid fills available space */
+    min-height: calc(100vh - 80px);
+  }
+  
+  .collapseButton {
+    background-color: #007bff; /* Blue background */
+    color: white; /* White text */
+    border: none; /* Remove default border */
+    border-radius: 50%; /* Circular button */
+    width: 50px; /* Larger width */
+    height: 50px; /* Larger height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px; /* Smaller font size */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease; /* Smooth background transition */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    position: absolute;
+    top: 10px; /* Slightly offset from the top */
+    left: 10px; /* Slightly offset from the left */
+    z-index: 1001; /* Ensure it stays on top */
+  }
+  
+  .collapseButton:hover {
+    background-color: #0056b3; /* Darker blue on hover */
   }
   
