@@ -1,21 +1,5 @@
 import Link from "next/link";
-
-function ProductPreview({ tone = "" }: { tone?: string }) {
-  return (
-    <div className={"preview " + tone} aria-hidden="true">
-      <div className="mini-window">
-        <div className="mini-bar"><i className="mini-dot" /><i className="mini-dot" /><i className="mini-dot" /></div>
-        <div className="mini-body">
-          <div className="mini-side" />
-          <div className="mini-content">
-            <div className="mini-metrics"><div className="mini-metric">Uptime<br /><b>99.98%</b></div><div className="mini-metric">Services<br /><b>42</b></div><div className="mini-metric">Deploys<br /><b>18</b></div></div>
-            <div className="mini-chart" />
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
+import ProjectPreview from "./components/ProjectPreview";
 
 const careers = [
   ["2025—Now", "Field / SRE Engineer", "Government technology program", "Operating across AWS, Kubernetes, on-prem infrastructure, networking, automation, and production reliability."],
@@ -31,12 +15,12 @@ export default function Home() {
       <section className="site-shell hero">
         <div className="hero-grid">
           <div>
-            <div className="eyebrow">Principal engineer · product builder · operator</div>
-            <h1 className="display hero-title">Complex systems.<br /><span>Clear outcomes.</span></h1>
+            <div className="eyebrow">U.S.-based engineer · product builder · systems operator</div>
+            <h1 className="display hero-title">Sharp interfaces.<br /><span>Serious engineering.</span></h1>
           </div>
           <aside className="hero-aside">
             <div className="availability"><i className="availability-dot" /> Select engagements · Northern Virginia / remote</div>
-            <p className="lead">I design, build, and operate reliable software—from cloud infrastructure and developer platforms to SaaS products and polished web experiences.</p>
+            <p className="lead">I design and build digital products that pair a strong visual point of view with dependable engineering—from media-rich websites to cloud platforms and production systems.</p>
             <div className="button-row">
               <Link className="button button-primary" href="/projects">Explore the work →</Link>
               <Link className="button button-secondary" href="/contact">Discuss a project</Link>
@@ -46,8 +30,8 @@ export default function Home() {
         <div className="hero-strip">
           <div className="hero-stat"><strong>15+ years</strong><span>Programming and systems work</span></div>
           <div className="hero-stat"><strong>AWS · Oracle</strong><span>Hyperscale cloud experience</span></div>
-          <div className="hero-stat"><strong>DevOps · SRE</strong><span>Production engineering depth</span></div>
-          <div className="hero-stat"><strong>Founder-led</strong><span>One accountable technical lead</span></div>
+          <div className="hero-stat"><strong>Full-stack · SRE</strong><span>Interface to infrastructure</span></div>
+          <div className="hero-stat"><strong>U.S.-based</strong><span>One accountable technical lead</span></div>
         </div>
       </section>
 
@@ -68,14 +52,14 @@ export default function Home() {
       <section className="section section-rule">
         <div className="site-shell">
           <div className="section-head">
-            <div><div className="eyebrow">Selected work</div><h2 className="section-title">Products and<br />interface systems.</h2></div>
-            <p className="lead">A mix of shipped products and clearly labeled concept builds that demonstrate product range without pretending experiments were client engagements.</p>
+            <div><div className="eyebrow">Selected work</div><h2 className="section-title">Built around the idea.<br />Never the template.</h2></div>
+            <p className="lead">Multilingual platforms, interactive media, practical SaaS, and interface systems—each shaped around its audience and technical constraints.</p>
           </div>
           <div className="work-grid">
-            <Link className="work-card" href="/projects#products"><ProductPreview tone="preview-blue" /><div className="work-card-copy"><div className="eyebrow">Shipped product ecosystem</div><h3>Racoben Product Suite</h3><p>Deterministic software tools and productized services designed, built, and operated under one engineering umbrella.</p><div className="tag-row"><span className="tag">Next.js</span><span className="tag">Systems design</span><span className="tag">Product engineering</span></div><span className="view-link">View portfolio →</span></div></Link>
-            <Link className="work-card" href="/lab/ops"><ProductPreview tone="preview-red" /><div className="work-card-copy"><div className="eyebrow">Interactive concept · dashboard</div><h3>Northstar Operations</h3><p>An incident-aware service health and deployment command center for reliability teams.</p><div className="tag-row"><span className="tag">SRE</span><span className="tag">Data visualization</span><span className="tag">Responsive UI</span></div><span className="view-link">Open live concept →</span></div></Link>
-            <Link className="work-card" href="/lab/field"><ProductPreview tone="preview-sand" /><div className="work-card-copy"><div className="eyebrow">Interactive concept · field app</div><h3>Field Atlas</h3><p>A mobile-first operations surface that coordinates technicians, work orders, and live service territory.</p><div className="tag-row"><span className="tag">Mobile UI</span><span className="tag">Operations</span><span className="tag">Workflow design</span></div><span className="view-link">Open live concept →</span></div></Link>
-            <Link className="work-card" href="/lab/studio"><ProductPreview /><div className="work-card-copy"><div className="eyebrow">Interactive concept · website</div><h3>Common Ground Studio</h3><p>A conversion-led service website with a distinctly editorial visual system and mobile-native composition.</p><div className="tag-row"><span className="tag">Web design</span><span className="tag">Brand system</span><span className="tag">Responsive build</span></div><span className="view-link">Open live concept →</span></div></Link>
+            <a className="work-card work-card-featured" href="https://tide-and-timber-demo.juschock.chatgpt.site" target="_blank" rel="noreferrer"><ProjectPreview kind="tide" /><div className="work-card-copy"><div className="eyebrow">Featured · bilingual media experience</div><h3>Tide &amp; Timber</h3><p>A cinematic English-and-Spanish editorial experience with instant language switching, synchronized audio text, mobile-safe single-play video, and custom media controls.</p><div className="tag-row"><span className="tag">Bilingual UX</span><span className="tag">Timed audio</span><span className="tag">Responsive media</span></div><span className="view-link">Experience the live build ↗</span></div></a>
+            <a className="work-card" href="https://www.sunsun.ai" target="_blank" rel="noreferrer"><ProjectPreview kind="sunsun" /><div className="work-card-copy"><div className="eyebrow">Multilingual publishing platform</div><h3>SunSun</h3><p>An expressive publishing experience bringing six languages into one clear, responsive interface.</p><div className="tag-row"><span className="tag">Next.js</span><span className="tag">Internationalization</span><span className="tag">Editorial UI</span></div><span className="view-link">Visit SunSun ↗</span></div></a>
+            <a className="work-card" href="https://www.preppergo.com/" target="_blank" rel="noreferrer"><ProjectPreview kind="prepper" /><div className="work-card-copy"><div className="eyebrow">Consumer SaaS platform</div><h3>PrepperGo</h3><p>A practical preparedness platform unifying planning, inventories, resources, alerts, and subscriptions.</p><div className="tag-row"><span className="tag">Product engineering</span><span className="tag">Data modeling</span><span className="tag">Stripe</span></div><span className="view-link">Visit PrepperGo ↗</span></div></a>
+            <Link className="work-card" href="/lab/ops"><ProjectPreview kind="ops" /><div className="work-card-copy"><div className="eyebrow">Interactive concept · dashboard</div><h3>Northstar Operations</h3><p>An incident-aware service health and deployment command center for reliability teams.</p><div className="tag-row"><span className="tag">SRE</span><span className="tag">Data visualization</span><span className="tag">Responsive UI</span></div><span className="view-link">Open live concept →</span></div></Link>
           </div>
           <div style={{marginTop:24}}><Link className="button button-secondary" href="/projects">See all projects and concepts →</Link></div>
         </div>
