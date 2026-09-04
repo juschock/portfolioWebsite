@@ -1,28 +1,27 @@
-// components/Navbar.tsx
-'use client'
+"use client";
 
-import Link from 'next/link';
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useState } from "react";
+
+const links = [["Work", "/projects"], ["Experience", "/experience"], ["About", "/about"]];
 
 export default function Navbar() {
+  const [open, setOpen] = useState(false);
+  const pathname = usePathname();
+  if (pathname.startsWith("/lab/")) return null;
   return (
-    <nav className="p-4 bg-gray-800 text-white">
-      <div className="flex justify-between items-center">
-        <ul className="flex gap-4">
-          <li>
-            <Link href="/">Home</Link>
-          </li>
-          <li>
-            <Link href="/projects">Experience</Link>
-          </li>
-          <li>
-            <Link href="/about">About</Link>
-          </li>
-          <li>
-            <Link href="/contact">Contact</Link>
-          </li>
-        </ul>
-        <div className="font-semibold">Joshua Uschock</div>
-      </div>
-    </nav>
+    <header className="site-header">
+      <nav className="site-shell nav-wrap" aria-label="Primary navigation">
+        <Link className="wordmark" href="/" onClick={() => setOpen(false)}>
+          <span className="wordmark-mark">JU</span><span>Joshua Uschock</span>
+        </Link>
+        <button className="menu-button" aria-expanded={open} onClick={() => setOpen(!open)}>{open ? "Close" : "Menu"}</button>
+        <div className={"nav-links " + (open ? "open" : "")}>
+          {links.map(([label, href]) => <Link className="nav-link" aria-current={pathname === href ? "page" : undefined} href={href} key={href} onClick={() => setOpen(false)}>{label}</Link>)}
+          <Link className="nav-link nav-cta" href="/contact" onClick={() => setOpen(false)}>Start a conversation ↗</Link>
+        </div>
+      </nav>
+    </header>
   );
 }

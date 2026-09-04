@@ -1,133 +1,57 @@
-import '../globals.css';
+import type { Metadata } from "next";
+import Link from "next/link";
+
+export const metadata: Metadata = { title: "Work", description: "Selected software products, systems, dashboards, and web experiences by Joshua Uschock." };
+
+function Preview({ tone = "" }: { tone?: string }) {
+  return <div className={"preview " + tone} aria-hidden="true"><div className="mini-window"><div className="mini-bar"><i className="mini-dot" /><i className="mini-dot" /><i className="mini-dot" /></div><div className="mini-body"><div className="mini-side" /><div className="mini-content"><div className="mini-metrics"><div className="mini-metric">Status<br /><b>Healthy</b></div><div className="mini-metric">Jobs<br /><b>1,284</b></div><div className="mini-metric">Latency<br /><b>42ms</b></div></div><div className="mini-chart" /></div></div></div></div>;
+}
+
+const products = [
+  { name:"Racoben Local AI", type:"Local engineering system", copy:"A private, local-first engineering workspace for scoped application work, serialized inference, reviewable diffs, verification, approvals, and controlled commits.", tags:["Python","Local LLMs","Systems design","Developer tooling"], href:"https://github.com/juschock", link:"GitHub profile", tone:"preview-blue" },
+  { name:"PrepperGo", type:"Consumer SaaS platform", copy:"A preparedness platform bringing planning, inventories, resources, alerts, and subscriptions into one coherent product experience.", tags:["Next.js","Product engineering","Data modeling","Stripe"], href:"https://www.preppergo.com/", link:"Visit product", tone:"preview-sand" },
+  { name:"CauseBrief", type:"Productized service platform", copy:"A structured brief-to-deliverable workflow for small nonprofits and local campaigns, pairing a simple customer experience with a rigorous internal production system.", tags:["Next.js","Workflow design","Payments","Human QA"], href:"https://github.com/juschock/CauseBrief", link:"View repository", tone:"preview-red" },
+  { name:"ShipCheck", type:"Deterministic developer toolkit", copy:"A collection of focused checkers, calculators, and generators for software teams, built as static, dependable tools with machine-readable output parity.", tags:["Next.js","Static tools","Developer UX","JSON"], href:"https://github.com/juschock/racoben", link:"View ecosystem", tone:"" },
+  { name:"File Management Dashboard", type:"Administrative web application", copy:"A data-dense file operations interface exploring secure organization, search, metadata, and high-volume administrative workflows.", tags:["Next.js","Prisma","Dashboard UI","Data tables"], href:"https://github.com/juschock/file_management_dashbrd", link:"View repository", tone:"preview-blue" },
+  { name:"Watch Inventory Platform", type:"Inventory product", copy:"A purpose-built management surface for organizing watch collections, inventory records, and product details.", tags:["React","Node.js","Product UI","Inventory"], href:"https://github.com/juschock/watch_inventory_mngmnt_platform", link:"View repository", tone:"preview-sand" },
+];
 
 export default function ProjectsPage() {
   return (
-    <div className="min-h-screen p-4 sm:p-8 pb-20 bg-gradient-to-br from-gray-50 to-gray-100">
-      <main className="max-w-6xl mx-auto space-y-6 sm:space-y-8">
-        {/* Header */}
-        <div className="bg-white rounded-xl shadow-lg p-6 sm:p-12 mb-6 sm:mb-8 hover:shadow-xl transition-shadow duration-300">
-          <h1 className="text-3xl sm:text-5xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-blue-600 to-purple-600 text-transparent bg-clip-text">
-            Professional Experience
-          </h1>
-          <p className="text-lg sm:text-xl text-gray-700">
-            A showcase of my professional journey and key projects across different organizations.
-          </p>
+    <>
+      <section className="site-shell page-hero">
+        <div className="page-hero-grid">
+          <div><div className="eyebrow">Selected work · 2011—2026</div><h1 className="page-title">A body of work,<br />not a template gallery.</h1></div>
+          <p className="lead">Production systems, SaaS products, internal tools, infrastructure programs, and interface experiments from a career spent building across the stack.</p>
         </div>
+      </section>
 
-        {/* Current Role */}
-        <div className="bg-white rounded-xl shadow-lg p-6 sm:p-8 hover:shadow-xl transition-shadow duration-300">
-          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4 sm:mb-6">
-            <h2 className="text-xl sm:text-2xl font-semibold text-gray-800">Principal Engineer</h2>
-            <span className="text-gray-500 text-sm sm:text-base mt-1 sm:mt-0">Dec 2023 - Present</span>
-          </div>
-          <h3 className="text-xl text-purple-600 mb-4">LoneCypressAI | Herndon, VA</h3>
-          <ul className="space-y-4 text-gray-700">
-            <li className="flex items-start">
-              <svg className="w-6 h-6 text-green-500 mr-2 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-              <span>Designed and implemented AI-driven engineering solutions using AWS, Kubernetes, and Docker</span>
-            </li>
-            <li className="flex items-start">
-              <svg className="w-6 h-6 text-green-500 mr-2 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-              <span>Led full software project lifecycles from requirements gathering to deployment</span>
-            </li>
-            <li className="flex items-start">
-              <svg className="w-6 h-6 text-green-500 mr-2 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-              <span>Developed with Python and JavaScript, implementing modern CI/CD practices</span>
-            </li>
-          </ul>
+      <section className="site-shell section section-rule" id="products">
+        <div className="section-head"><div><div className="eyebrow">Products & platforms</div><h2 className="section-title">Shipped and<br />operational work.</h2></div><p className="lead">Representative products from independent engineering work. Some repositories remain private because the systems or client context are not public.</p></div>
+        <div className="project-list">
+          {products.map((project) => (
+            <article className="project-row" key={project.name}>
+              <Preview tone={project.tone} />
+              <div className="project-copy">
+                <div><div className="eyebrow">{project.type}</div><h2>{project.name}</h2><p>{project.copy}</p><div className="tag-row">{project.tags.map(tag => <span className="tag" key={tag}>{tag}</span>)}</div></div>
+                <div className="project-links"><a href={project.href} target="_blank" rel="noreferrer">{project.link} ↗</a></div>
+              </div>
+            </article>
+          ))}
         </div>
+      </section>
 
-        {/* Previous Roles Grid */}
-        <div className="grid grid-cols-1 gap-6 sm:gap-8">
-          {/* Accenture */}
-          <div className="bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-shadow duration-300">
-            <div className="flex items-center justify-between mb-4">
-              <h2 className="text-xl font-semibold text-gray-800">Senior DevOps Engineer</h2>
-              <span className="text-gray-500">2023</span>
-            </div>
-            <h3 className="text-lg text-purple-600 mb-4">Accenture Federal Services</h3>
-            <ul className="space-y-3 text-gray-700">
-              <li className="flex items-start">
-                <span className="w-2 h-2 bg-blue-600 rounded-full mr-3 mt-2"></span>
-                <span>Developed Helm charts and HPA for Kubernetes deployments</span>
-              </li>
-              <li className="flex items-start">
-                <span className="w-2 h-2 bg-blue-600 rounded-full mr-3 mt-2"></span>
-                <span>Automated CI/CD pipelines using Jenkins</span>
-              </li>
-            </ul>
-          </div>
-
-          {/* Oracle */}
-          <div className="bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-shadow duration-300">
-            <div className="flex items-center justify-between mb-4">
-              <h2 className="text-xl font-semibold text-gray-800">Senior Network Engineer</h2>
-              <span className="text-gray-500">2023</span>
-            </div>
-            <h3 className="text-lg text-purple-600 mb-4">Oracle - OCI</h3>
-            <ul className="space-y-3 text-gray-700">
-              <li className="flex items-start">
-                <span className="w-2 h-2 bg-blue-600 rounded-full mr-3 mt-2"></span>
-                <span>Implemented cloud native workflows for OCI deployments</span>
-              </li>
-              <li className="flex items-start">
-                <span className="w-2 h-2 bg-blue-600 rounded-full mr-3 mt-2"></span>
-                <span>Optimized network performance and automation</span>
-              </li>
-            </ul>
-          </div>
-
-          {/* Booz Allen */}
-          <div className="bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-shadow duration-300">
-            <div className="flex items-center justify-between mb-4">
-              <h2 className="text-xl font-semibold text-gray-800">Lead Engineer, DevOps</h2>
-              <span className="text-gray-500">2022-2023</span>
-            </div>
-            <h3 className="text-lg text-purple-600 mb-4">Booz Allen Hamilton</h3>
-            <ul className="space-y-3 text-gray-700">
-              <li className="flex items-start">
-                <span className="w-2 h-2 bg-blue-600 rounded-full mr-3 mt-2"></span>
-                <span>Automated deployments with Kubernetes, Helm, and ArgoCD</span>
-              </li>
-              <li className="flex items-start">
-                <span className="w-2 h-2 bg-blue-600 rounded-full mr-3 mt-2"></span>
-                <span>Optimized ETL workflows with Apache NiFi</span>
-              </li>
-            </ul>
-          </div>
-
-          {/* AWS */}
-          <div className="bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-shadow duration-300">
-            <div className="flex items-center justify-between mb-4">
-              <h2 className="text-xl font-semibold text-gray-800">Systems Development Engineer</h2>
-              <span className="text-gray-500">2019-2022</span>
-            </div>
-            <h3 className="text-lg text-purple-600 mb-4">Amazon Web Services</h3>
-            <ul className="space-y-3 text-gray-700">
-              <li className="flex items-start">
-                <span className="w-2 h-2 bg-blue-600 rounded-full mr-3 mt-2"></span>
-                <span>Orchestrated AWS resources with Kubernetes and Python</span>
-              </li>
-              <li className="flex items-start">
-                <span className="w-2 h-2 bg-blue-600 rounded-full mr-3 mt-2"></span>
-                <span>Delivered scalable, secure cloud solutions</span>
-              </li>
-            </ul>
+      <section className="section section-rule">
+        <div className="site-shell">
+          <div className="section-head"><div><div className="eyebrow">Interface lab</div><h2 className="section-title">Range you can<br />actually open.</h2></div><p className="lead">Purpose-built concepts showing how different product categories demand different information architecture, interaction density, and visual language.</p></div>
+          <div className="work-grid">
+            <Link className="work-card" href="/lab/ops"><Preview tone="preview-red" /><div className="work-card-copy"><div className="eyebrow">SRE command center</div><h3>Northstar Operations</h3><p>Service health, deployments, incident signals, and operator actions in a compact responsive dashboard.</p><span className="view-link">Open live concept →</span></div></Link>
+            <Link className="work-card" href="/lab/field"><Preview tone="preview-sand" /><div className="work-card-copy"><div className="eyebrow">Field service platform</div><h3>Field Atlas</h3><p>A map-led dispatch surface paired with a mobile technician workflow.</p><span className="view-link">Open live concept →</span></div></Link>
+            <Link className="work-card" href="/lab/studio"><Preview tone="preview-blue" /><div className="work-card-copy"><div className="eyebrow">Service business website</div><h3>Common Ground Studio</h3><p>An editorial, conversion-focused website with an entirely different composition and rhythm.</p><span className="view-link">Open live concept →</span></div></Link>
+            <Link className="work-card" href="/lab/finance"><Preview /><div className="work-card-copy"><div className="eyebrow">Financial analytics</div><h3>Signal Ledger</h3><p>Portfolio monitoring with restrained data visualization and fast scenario switching.</p><span className="view-link">Open live concept →</span></div></Link>
           </div>
         </div>
-
-        {/* Footer
-        <footer className="text-center text-gray-500 pt-4 sm:pt-8">
-          <p>&copy; {new Date().getFullYear()} Joshua R. Uschock</p>
-        </footer> */}
-      </main>
-    </div>
+      </section>
+    </>
   );
 }
-  

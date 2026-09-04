@@ -1,258 +1,97 @@
-import Image from "next/image";
-import LocalChatbot from "./components/Chatbot/Chatbot";
+import Link from "next/link";
+
+function ProductPreview({ tone = "" }: { tone?: string }) {
+  return (
+    <div className={"preview " + tone} aria-hidden="true">
+      <div className="mini-window">
+        <div className="mini-bar"><i className="mini-dot" /><i className="mini-dot" /><i className="mini-dot" /></div>
+        <div className="mini-body">
+          <div className="mini-side" />
+          <div className="mini-content">
+            <div className="mini-metrics"><div className="mini-metric">Uptime<br /><b>99.98%</b></div><div className="mini-metric">Services<br /><b>42</b></div><div className="mini-metric">Deploys<br /><b>18</b></div></div>
+            <div className="mini-chart" />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+const careers = [
+  ["2025—Now", "Field / SRE Engineer", "Government technology program", "Operating across AWS, Kubernetes, on-prem infrastructure, networking, automation, and production reliability."],
+  ["2023—2024", "Founder & Principal Engineer", "LoneCypressAI", "Led product engineering, client delivery, systems design, development, deployment, and applied AI programs."],
+  ["2023", "Senior DevOps / Network Engineer", "Accenture Federal Services · Oracle", "Built Kubernetes delivery systems and cloud-native network automation across secure environments."],
+  ["2022—2023", "Lead DevOps Engineer", "Booz Allen Hamilton", "Automated container platforms, CI/CD, GitOps, and data engineering workflows."],
+  ["2019—2022", "Systems Development Engineer", "Amazon Web Services", "Built and operated secure, highly available systems for Amazon S3 in specialized AWS regions."],
+];
 
 export default function Home() {
   return (
-    <div className="min-h-screen p-8 pb-20 bg-gradient-to-br from-gray-50 to-gray-100">
-      <div className="responsive-container home-page-container">
-        <main className="max-w-6xl mx-auto">
-          {/* Hero Card */}
-          <div className="bg-white rounded-xl shadow-lg p-12 mb-8 hover:shadow-xl transition-shadow duration-300">
-            <div className="flex flex-col md:flex-row items-center gap-8 mb-8">
-              <Image
-                src="/1689704103838.jpeg"
-                alt="Professional headshot"
-                width={180}
-                height={180}
-                className="rounded-full shadow-lg object-cover"
-                priority
-              />
-              <div>
-                <h1 className="text-6xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 text-transparent bg-clip-text">
-                  Joshua Uschock
-                </h1>
-                <p className="text-2xl text-gray-700 leading-relaxed">
-                  Senior Engineer specializing in DevOps, SRE, and Full-Stack Development
-                </p>
-              </div>
-            </div>
-            <div className="flex flex-wrap gap-4">
-              <a
-                href="/about"
-                className="inline-flex items-center px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-300"
-              >
-                <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-                About Me
-              </a>
-            </div>
-            <div className="flex gap-4 mt-4 w-full">
-              <a
-                href="https://github.com/juschock"
-                className="text-gray-600 hover:text-blue-600 transition-colors duration-300"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.237 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                </svg>
-              </a>
-              <a
-                href="https://linkedin.com/in/joshuauschock"
-                className="text-gray-600 hover:text-blue-600 transition-colors duration-300"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                </svg>
-              </a>
-            </div>
+    <>
+      <section className="site-shell hero">
+        <div className="hero-grid">
+          <div>
+            <div className="eyebrow">Principal engineer · product builder · operator</div>
+            <h1 className="display hero-title">Complex systems.<br /><span>Clear outcomes.</span></h1>
           </div>
-
-          {/* Skills Overview Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Development Card */}
-            <div className="bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-shadow duration-300">
-              <h2 className="text-xl font-semibold mb-4 text-gray-800 flex items-center">
-                <svg className="w-6 h-6 mr-2 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-                </svg>
-                Development
-              </h2>
-              <p className="text-gray-600">
-                Full-stack development with expertise in Python, JavaScript, and modern web frameworks. AWS certified cloud practitioner.
-              </p>
+          <aside className="hero-aside">
+            <div className="availability"><i className="availability-dot" /> Select engagements · Northern Virginia / remote</div>
+            <p className="lead">I design, build, and operate reliable software—from cloud infrastructure and developer platforms to SaaS products and polished web experiences.</p>
+            <div className="button-row">
+              <Link className="button button-primary" href="/projects">Explore the work →</Link>
+              <Link className="button button-secondary" href="/contact">Discuss a project</Link>
             </div>
+          </aside>
+        </div>
+        <div className="hero-strip">
+          <div className="hero-stat"><strong>15+ years</strong><span>Programming and systems work</span></div>
+          <div className="hero-stat"><strong>AWS · Oracle</strong><span>Hyperscale cloud experience</span></div>
+          <div className="hero-stat"><strong>DevOps · SRE</strong><span>Production engineering depth</span></div>
+          <div className="hero-stat"><strong>Founder-led</strong><span>One accountable technical lead</span></div>
+        </div>
+      </section>
 
-            {/* DevOps Card */}
-            <div className="bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-shadow duration-300">
-              <h2 className="text-xl font-semibold mb-4 text-gray-800 flex items-center">
-                <svg className="w-6 h-6 mr-2 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-                </svg>
-                Security
-              </h2>
-              <p className="text-gray-600">
-                CompTIA Security+ certified. Experienced in building secure systems and implementing security best practices.
-              </p>
-            </div>
-
-            {/* SRE Card */}
-            <div className="bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-shadow duration-300">
-              <h2 className="text-xl font-semibold mb-4 text-gray-800 flex items-center">
-                <svg className="w-6 h-6 mr-2 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                </svg>
-                Linux & Systems
-              </h2>
-              <p className="text-gray-600">
-                CompTIA Linux+ certified. Experienced in system administration and infrastructure management.
-              </p>
-            </div>
+      <section className="section section-rule">
+        <div className="site-shell">
+          <div className="section-head">
+            <div><div className="eyebrow">Engineering practice</div><h2 className="section-title">From first diagram<br />to production.</h2></div>
+            <p className="lead">The value is not a stack of tools. It is the ability to take an ambiguous problem, find the system underneath it, and deliver something durable.</p>
           </div>
-
-          {/* Featured Projects Section */}
-          <div className="mt-12">
-            <h2 className="text-3xl font-bold mb-8 text-gray-800">Featured Projects</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {/* Portfolio Website Card */}
-              <div className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
-                <h3 className="text-xl font-semibold mb-3 text-gray-800">Portfolio Website</h3>
-                <p className="text-gray-600 mb-4">
-                  A modern, responsive personal portfolio built with Next.js, TypeScript, and Tailwind CSS. Features server-side rendering and optimized performance.
-                </p>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  <span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">Next.js</span>
-                  <span className="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm">TypeScript</span>
-                  <span className="px-3 py-1 bg-teal-100 text-teal-800 rounded-full text-sm">Tailwind CSS</span>
-                </div>
-                <div className="flex flex-wrap gap-4">
-                <a 
-                  href="https://github.com/juschock/portfolioWebsite"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center text-blue-600 hover:text-blue-800 transition-colors duration-300"
-                >
-                  View on GitHub <span className="ml-2">→</span>
-                </a>
-                <a 
-                    href="https:joshuauschock.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center text-purple-600 hover:text-purple-800 transition-colors duration-300"
-                  >
-                    Live Demo: Visit <span className="ml-2">→</span>
-                  </a>
-                  </div>
-              </div>
-
-              {/* Sun Sun Project Card */}
-              <div className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
-                <h3 className="text-xl font-semibold mb-3 text-gray-800">Sun Sun</h3>
-                <p className="text-gray-600 mb-4">
-                  A multilingual content platform that illuminates content across languages. Built with Next.js and features a modern, gradient-rich design with support for multiple languages.
-                </p>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  <span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">Next.js</span>
-                  <span className="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm">TypeScript</span>
-                  <span className="px-3 py-1 bg-teal-100 text-teal-800 rounded-full text-sm">Tailwind CSS</span>
-                  <span className="px-3 py-1 bg-orange-100 text-orange-800 rounded-full text-sm">i18n</span>
-                </div>
-                <div className="flex flex-wrap gap-4">
-                  <a 
-                    href="https://github.com/juschock/sunsun"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center text-blue-600 hover:text-blue-800 transition-colors duration-300"
-                  >
-                    View on GitHub <span className="ml-2">→</span>
-                  </a>
-                  <a 
-                    href="https://www.sunsun.ai/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center text-purple-600 hover:text-purple-800 transition-colors duration-300"
-                  >
-                    Live Demo: Visit SunSun.ai <span className="ml-2">→</span>
-                  </a>
-                </div>
-              </div>
-
-              {/* New Project Card */}
-              <div className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
-                <h3 className="text-xl font-semibold mb-3 text-gray-800">PrepperGo.com</h3>
-                <p className="text-gray-600 mb-4">
-                  PrepperGo.com is a comprehensive platform for preppers, offering resources and tools to help individuals prepare for emergencies and disasters.
-                </p>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  <span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">React</span>
-                  <span className="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm">Node.js</span>
-                  <span className="px-3 py-1 bg-teal-100 text-teal-800 rounded-full text-sm">MongoDB</span>
-                </div>
-                <a 
-                  href="https://www.preppergo.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center text-purple-600 hover:text-blue-800 transition-colors duration-300"
-                >
-                  Live Demo: Visit PrepperGo.com <span className="ml-2">→</span>
-                </a>
-              </div>
-
-              {/* Watch Inventory Management Platform Card */}
-              <div className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
-                <h3 className="text-xl font-semibold mb-3 text-gray-800">Watch Inventory Management Platform</h3>
-                <p className="text-gray-600 mb-4">
-                  A platform to manage watch inventories efficiently, providing tools for tracking and organizing collections.
-                </p>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  <span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">React</span>
-                  <span className="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm">Node.js</span>
-                  <span className="px-3 py-1 bg-teal-100 text-teal-800 rounded-full text-sm">MongoDB</span>
-                </div>
-                <div className="flex flex-wrap gap-4">
-                  <a 
-                    href="https://github.com/juschock/watch_inventory_mngmnt_platform.git"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center text-blue-600 hover:text-blue-800 transition-colors duration-300"
-                  >
-                    View on GitHub <span className="ml-2">→</span>
-                  </a>
-                </div>
-              </div>
-
-              {/* File Management Dashboard Card */}
-              <div className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
-                <h3 className="text-xl font-semibold mb-3 text-gray-800">File Management Dashboard</h3>
-                <p className="text-gray-600 mb-4">
-                  A comprehensive dashboard for managing files efficiently, designed to handle large volumes of data with ease and security.
-                </p>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  <span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">Next.js</span>
-                  <span className="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm">Prisma</span>
-                  <span className="px-3 py-1 bg-teal-100 text-teal-800 rounded-full text-sm">Tailwind CSS</span>
-                </div>
-                <div className="flex flex-wrap gap-4">
-                  <a 
-                    href="https://github.com/juschock/file_management_dashbrd"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center text-blue-600 hover:text-blue-800 transition-colors duration-300"
-                  >
-                    View on GitHub <span className="ml-2">→</span>
-                  </a>
-                </div>
-              </div>
-            </div>
+          <div className="capability-grid">
+            <article className="capability"><span className="capability-number">01 / SYSTEMS</span><div><h3>Cloud, platforms<br />& reliability</h3><p>AWS, Kubernetes, networking, infrastructure as code, observability, CI/CD, incident response, and operational design.</p></div></article>
+            <article className="capability"><span className="capability-number">02 / SOFTWARE</span><div><h3>Products, APIs<br />& automation</h3><p>Python and TypeScript systems, integrations, internal tools, deterministic workflows, and full-stack product development.</p></div></article>
+            <article className="capability"><span className="capability-number">03 / EXPERIENCE</span><div><h3>Dashboards, SaaS<br />& web platforms</h3><p>Responsive product interfaces, administrative surfaces, data-rich dashboards, websites, and design systems built to feel considered.</p></div></article>
           </div>
+        </div>
+      </section>
 
-          <LocalChatbot />
+      <section className="section section-rule">
+        <div className="site-shell">
+          <div className="section-head">
+            <div><div className="eyebrow">Selected work</div><h2 className="section-title">Products and<br />interface systems.</h2></div>
+            <p className="lead">A mix of shipped products and clearly labeled concept builds that demonstrate product range without pretending experiments were client engagements.</p>
+          </div>
+          <div className="work-grid">
+            <Link className="work-card" href="/projects#products"><ProductPreview tone="preview-blue" /><div className="work-card-copy"><div className="eyebrow">Shipped product ecosystem</div><h3>Racoben Product Suite</h3><p>Deterministic software tools and productized services designed, built, and operated under one engineering umbrella.</p><div className="tag-row"><span className="tag">Next.js</span><span className="tag">Systems design</span><span className="tag">Product engineering</span></div><span className="view-link">View portfolio →</span></div></Link>
+            <Link className="work-card" href="/lab/ops"><ProductPreview tone="preview-red" /><div className="work-card-copy"><div className="eyebrow">Interactive concept · dashboard</div><h3>Northstar Operations</h3><p>An incident-aware service health and deployment command center for reliability teams.</p><div className="tag-row"><span className="tag">SRE</span><span className="tag">Data visualization</span><span className="tag">Responsive UI</span></div><span className="view-link">Open live concept →</span></div></Link>
+            <Link className="work-card" href="/lab/field"><ProductPreview tone="preview-sand" /><div className="work-card-copy"><div className="eyebrow">Interactive concept · field app</div><h3>Field Atlas</h3><p>A mobile-first operations surface that coordinates technicians, work orders, and live service territory.</p><div className="tag-row"><span className="tag">Mobile UI</span><span className="tag">Operations</span><span className="tag">Workflow design</span></div><span className="view-link">Open live concept →</span></div></Link>
+            <Link className="work-card" href="/lab/studio"><ProductPreview /><div className="work-card-copy"><div className="eyebrow">Interactive concept · website</div><h3>Common Ground Studio</h3><p>A conversion-led service website with a distinctly editorial visual system and mobile-native composition.</p><div className="tag-row"><span className="tag">Web design</span><span className="tag">Brand system</span><span className="tag">Responsive build</span></div><span className="view-link">Open live concept →</span></div></Link>
+          </div>
+          <div style={{marginTop:24}}><Link className="button button-secondary" href="/projects">See all projects and concepts →</Link></div>
+        </div>
+      </section>
 
-          {/* Footer
-          <footer className="mt-16 text-center text-gray-500">
-            <div className="max-w-2xl mx-auto">
-              <p className="mb-4">&copy; {new Date().getFullYear()} Joshua U Schock. All rights reserved.</p>
-              <p className="text-sm">
-                Built with Next.js, TypeScript, and Tailwind CSS. 
-                Deployed on Vercel.
-              </p>
-            </div>
-          </footer> */}
-        </main>
-      </div>
-    </div>
+      <section className="quote-band"><div className="site-shell"><p>Architecture is only useful when it survives contact with <span>production, people, and change.</span></p></div></section>
+
+      <section className="section">
+        <div className="site-shell">
+          <div className="section-head"><div><div className="eyebrow">Experience</div><h2 className="section-title">Built in demanding<br />environments.</h2></div><p className="lead">A career spanning military service, hyperscale cloud, federal technology, startup leadership, and hands-on product engineering.</p></div>
+          <div className="career-list">
+            {careers.map(([date, role, company, copy]) => <article className="career-row" key={role}><time>{date}</time><div><h3>{role}</h3><span className="company">{company}</span></div><p>{copy}</p></article>)}
+          </div>
+          <div style={{marginTop:28}}><Link className="button button-secondary" href="/experience">Full experience →</Link></div>
+        </div>
+      </section>
+    </>
   );
 }

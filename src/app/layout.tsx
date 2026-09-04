@@ -1,38 +1,13 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 export const metadata: Metadata = {
-  title: "Joshua's Portfolio",
-  description: "Showcase of my projects and skills.",
+  title: { default: "Joshua Uschock — Software, Systems & DevOps Engineer", template: "%s — Joshua Uschock" },
+  description: "Senior software, systems, DevOps, and SRE engineer building resilient infrastructure and polished digital products.",
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
-  return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <Navbar />
-        <main className="container mx-auto px-4 py-8">{children}</main>
-        <Footer />
-      </body>
-    </html>
-  );
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+  return <html lang="en"><body><Navbar /><main>{children}</main><Footer /></body></html>;
 }
