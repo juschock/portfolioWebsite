@@ -37,14 +37,14 @@ export default function Home() {
         <div className="site-shell hero-layout">
           <div className="hero-copy">
             <div className="eyebrow eyebrow-on-dark">U.S.-based product, software &amp; systems engineer</div>
-            <h1 className="display">I turn complex systems into clear, reliable products.</h1>
-            <p className="hero-lead">Fifteen years across product engineering, cloud platforms, DevOps, SRE, and interface design—with one accountable technical lead from first decision through production.</p>
+            <h1 className="display">Complex systems. Clear products. One accountable engineer.</h1>
+            <p className="hero-lead">I design, build, and operate ambitious digital products—from the interface and data model to the cloud beneath them.</p>
             <div className="button-row">
               <Link className="button button-accent" href="/projects">View selected work <span aria-hidden="true">↗</span></Link>
               <Link className="button button-on-dark" href="/contact">Discuss a project</Link>
             </div>
             <div className="hero-credentials" aria-label="Career highlights">
-              <span>AWS</span><span>Oracle</span><span>Booz Allen</span><span>U.S. Army</span>
+              <span>Amazon S3</span><span>Oracle</span><span>Booz Allen</span><span>U.S. Army</span>
             </div>
           </div>
 
@@ -59,10 +59,10 @@ export default function Home() {
           </aside>
         </div>
         <div className="site-shell proof-rail">
-          <div><strong>15+ years</strong><span>Programming &amp; systems</span></div>
-          <div><strong>Full lifecycle</strong><span>Discovery to operations</span></div>
-          <div><strong>Interface to infra</strong><span>One connected system</span></div>
-          <div><strong>U.S.-based</strong><span>Direct collaboration</span></div>
+          <div><strong>15+ years</strong><span>Building and operating systems</span></div>
+          <div><strong>Amazon S3</strong><span>Three years in specialized regions</span></div>
+          <div><strong>AWS Advanced Networking</strong><span>Specialty certified</span></div>
+          <div><strong>10 years</strong><span>United States Army</span></div>
         </div>
       </section>
 
@@ -70,12 +70,12 @@ export default function Home() {
         <div className="site-shell">
           <header className="section-intro">
             <div className="eyebrow">Selected work</div>
-            <h2 className="section-title">Products with a point of view—and the engineering to hold up.</h2>
-            <p className="lead">Representative work spanning consumer SaaS, bilingual media, and multilingual publishing—each shaped around the people using it and the system behind it.</p>
+            <h2 className="section-title">Real products, deliberate interfaces, production-minded engineering.</h2>
+            <p className="lead">A flagship consumer platform and two focused web experiences—each built around a different interaction problem.</p>
           </header>
 
           <div className="case-study-list">
-            <a className="case-study" href="https://www.preppergo.com/" target="_blank" rel="noreferrer">
+            <a className="case-study case-study-featured" href="https://www.preppergo.com/" target="_blank" rel="noreferrer">
               <div className="case-study-visual">
                 <ProjectPreview imageSrc="/projects/preppergo-home.jpg" imageAlt="The live PrepperGo homepage and readiness dashboard" objectPosition="center top" />
               </div>
@@ -84,52 +84,55 @@ export default function Home() {
                   <span className="project-status">Live product</span>
                   <div className="eyebrow">Consumer SaaS</div>
                   <h3>PrepperGo</h3>
-                  <p>A calm household-readiness platform that turns inventory data into runway estimates, priorities, and next actions.</p>
+                  <p>A calm household-readiness platform that turns inventory data into runway estimates, priorities, and next actions—with subscription, permissions, and data integrity engineered as part of the product.</p>
                 </div>
-                <dl className="project-facts">
-                  <div><dt>Role</dt><dd>Product &amp; engineering</dd></div>
-                  <div><dt>Focus</dt><dd>Data modeling · UX · subscriptions</dd></div>
-                </dl>
+                <div className="project-proof" aria-label="PrepperGo proof points">
+                  <div><strong>199</strong><span>unit tests</span></div>
+                  <div><strong>260+</strong><span>browser checks</span></div>
+                  <div><strong>End to end</strong><span>product ownership</span></div>
+                </div>
                 <span className="view-link">Open PrepperGo <span aria-hidden="true">↗</span></span>
               </div>
             </a>
 
-            <a className="case-study" href="https://tide-and-timber-demo.juschock.chatgpt.site" target="_blank" rel="noreferrer">
-              <div className="case-study-visual"><ProjectPreview kind="tide" /></div>
-              <div className="case-study-copy">
-                <div>
-                  <span className="project-status project-status-concept">Interactive build</span>
-                  <div className="eyebrow">Bilingual media experience</div>
+            <div className="supporting-cases">
+              <a className="supporting-case" href="https://tide-and-timber-demo.juschock.chatgpt.site" target="_blank" rel="noreferrer">
+                <div className="supporting-case-visual"><ProjectPreview kind="tide" /></div>
+                <div className="supporting-case-copy">
+                  <div className="project-heading-row"><span className="project-status project-status-concept">Interactive build</span><span>Bilingual media</span></div>
                   <h3>Tide &amp; Timber</h3>
-                  <p>A cinematic English-and-Spanish experience with instant language switching, synchronized audio text, and mobile-safe media behavior.</p>
+                  <p>Instant EN/ES switching, a precisely timed 40-second audio sequence, and mobile-safe media state.</p>
+                  <span className="view-link">Experience the build <span aria-hidden="true">↗</span></span>
                 </div>
-                <dl className="project-facts">
-                  <div><dt>Role</dt><dd>Design &amp; development</dd></div>
-                  <div><dt>Focus</dt><dd>Bilingual UX · timed media</dd></div>
-                </dl>
-                <span className="view-link">Experience the live build <span aria-hidden="true">↗</span></span>
-              </div>
-            </a>
+              </a>
 
-            <a className="case-study" href="https://www.sunsun.ai" target="_blank" rel="noreferrer">
-              <div className="case-study-visual"><ProjectPreview kind="sunsun" /></div>
-              <div className="case-study-copy">
-                <div>
-                  <span className="project-status">Live platform</span>
-                  <div className="eyebrow">Multilingual publishing</div>
+              <a className="supporting-case" href="https://www.sunsun.ai" target="_blank" rel="noreferrer">
+                <div className="supporting-case-visual"><ProjectPreview kind="sunsun" /></div>
+                <div className="supporting-case-copy">
+                  <div className="project-heading-row"><span className="project-status">Live platform</span><span>Multilingual publishing</span></div>
                   <h3>SunSun</h3>
-                  <p>An expressive publishing platform that brings six languages into one responsive, legible product experience.</p>
+                  <p>One responsive publishing experience across English, Spanish, French, Hindi, Bengali, and Tamil.</p>
+                  <span className="view-link">Visit SunSun <span aria-hidden="true">↗</span></span>
                 </div>
-                <dl className="project-facts">
-                  <div><dt>Role</dt><dd>Full-stack engineering</dd></div>
-                  <div><dt>Focus</dt><dd>Next.js · i18n · editorial UI</dd></div>
-                </dl>
-                <span className="view-link">Visit SunSun <span aria-hidden="true">↗</span></span>
-              </div>
-            </a>
+              </a>
+            </div>
           </div>
 
           <div className="section-action"><Link className="text-link" href="/projects">See the complete project index <span aria-hidden="true">→</span></Link></div>
+        </div>
+      </section>
+
+      <section className="section proof-section">
+        <div className="site-shell proof-layout">
+          <div>
+            <div className="eyebrow eyebrow-on-dark">Why the work holds up</div>
+            <h2 className="section-title">The polish is visible. The rigor is underneath.</h2>
+          </div>
+          <div className="proof-ledger">
+            <div><span>01</span><p><strong>One owner across the stack.</strong> Product decisions stay connected to architecture, delivery, and operations.</p></div>
+            <div><span>02</span><p><strong>Production habits from day one.</strong> Testing, observability, security, and failure states are part of the build—not cleanup work.</p></div>
+            <div><span>03</span><p><strong>Direct senior collaboration.</strong> No handoff maze. The person shaping the solution is the person engineering it.</p></div>
+          </div>
         </div>
       </section>
 
