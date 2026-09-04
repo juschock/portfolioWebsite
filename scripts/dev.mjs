@@ -1,0 +1,32 @@
+import { spawn } from "node:child_process";
+import { createRequire } from "node:module";
+
+const require = createRequire(import.meta.url);
+const forwarded = process.argv.slice(2);
+const nextArgs = ["dev", "--turbopack"];
+
+for (let index = 0; index < forwarded.length; index += 1) {
+  const argument = forwarded[index];
+
+  if (argument === "--host") {
+    nextArgs.push("--hostname");
+    if (forwarded[index + 1]) nextArgs.push(forwarded[index += 1]);
+    continue;
+  }
+
+  if (argument === "--strictPort") continue;
+  nextArgs.push(argument);
+}
+
+const child = spawn(process.execPath, [require.resolve("next/dist/bin/next"), ...nextArgs], {
+  stdio: "inherit",
+});
+
+child.on("exit", (code, signal) => {
+  if (signal) process.kill(process.pid, signal);
+  else process.exit(code ?? 1);
+});
+
+for (const signal of ["SIGINT", "SIGTERM"]) {
+  process.on(signal, () => child.kill(signal));
+}

@@ -1,13 +1,21 @@
+import Image from "next/image";
+
 export type PreviewKind =
   | "tide"
   | "sunsun"
-  | "prepper"
   | "racoben"
   | "ops"
   | "field"
   | "studio"
   | "finance"
   | "systems";
+
+type ProjectPreviewProps = {
+  kind?: PreviewKind;
+  imageSrc?: string;
+  imageAlt?: string;
+  objectPosition?: string;
+};
 
 function TidePreview() {
   return (
@@ -36,17 +44,6 @@ function SunSunPreview() {
       <div className="sunsun-preview-head"><strong>SunSun</strong><span>Stories across languages</span></div>
       <div className="sunsun-preview-orbit"><i /><b>सूरज</b></div>
       <div className="sunsun-preview-grid"><span>English</span><span>Español</span><span>Français</span><span>தமிழ்</span></div>
-    </div>
-  );
-}
-
-function PrepperPreview() {
-  return (
-    <div className="prepper-preview">
-      <div className="prepper-preview-nav"><strong>PREPPERGO</strong><span>MY PLAN</span></div>
-      <div className="prepper-preview-title"><span>Household readiness</span><strong>72%</strong></div>
-      <div className="prepper-progress"><i /></div>
-      <div className="prepper-checks"><span><i>✓</i> Water &amp; food</span><span><i>✓</i> Documents</span><span><i>·</i> Communication plan</span></div>
     </div>
   );
 }
@@ -96,12 +93,30 @@ function SystemsPreview({ kind }: { kind: PreviewKind }) {
   );
 }
 
-export default function ProjectPreview({ kind = "systems" }: { kind?: PreviewKind }) {
+export default function ProjectPreview({ kind = "systems", imageSrc, imageAlt = "", objectPosition = "center top" }: ProjectPreviewProps) {
+  if (imageSrc) {
+    return (
+      <div className="preview preview-real">
+        <div className="browser-frame">
+          <div className="browser-bar" aria-hidden="true"><span /><span /><span /><i>Live product</i></div>
+          <div className="browser-screen">
+            <Image
+              src={imageSrc}
+              alt={imageAlt}
+              fill
+              sizes="(max-width: 900px) 100vw, 66vw"
+              style={{ objectPosition }}
+            />
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className={`preview preview-${kind}`} aria-hidden="true">
       {kind === "tide" ? <TidePreview /> :
         kind === "sunsun" ? <SunSunPreview /> :
-        kind === "prepper" ? <PrepperPreview /> :
         kind === "racoben" ? <RacobenPreview /> :
         <SystemsPreview kind={kind} />}
     </div>
