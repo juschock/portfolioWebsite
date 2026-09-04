@@ -16,7 +16,7 @@ export default function Navbar() {
         <Link className="wordmark" href="/" onClick={() => setOpen(false)}>
           <span className="wordmark-mark">JU</span><span>Joshua Uschock</span>
         </Link>
-        <button className="menu-button" aria-expanded={open} aria-controls="primary-navigation-links" aria-label={`${open ? "Close" : "Open"} navigation menu`} onClick={() => setOpen(!open)}>{open ? "Close" : "Menu"}</button>
+        <button className="menu-button" aria-expanded={open} aria-controls="primary-navigation-links" aria-label={`${open ? "Close" : "Open"} navigation menu`} onClick={() => setOpen((current) => !current)}>{open ? "Close" : "Menu"}</button>
         <div className={"nav-links " + (open ? "open" : "")} id="primary-navigation-links">
           {links.map(([label, href]) => <Link className="nav-link" aria-current={pathname === href ? "page" : undefined} href={href} key={href} onClick={() => setOpen(false)}>{label}</Link>)}
           <Link className="nav-link nav-cta" href="/contact" onClick={() => setOpen(false)}>Start a conversation ↗</Link>

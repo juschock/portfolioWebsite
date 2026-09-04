@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
 };
 
-export const viewport: Viewport = { themeColor: "#f5f2ea", colorScheme: "light" };
+export const viewport: Viewport = { themeColor: "#07111f", colorScheme: "light" };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return <html lang="en"><body><Navbar /><main>{children}</main><Footer /></body></html>;

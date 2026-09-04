@@ -2,60 +2,162 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import ProjectPreview, { type PreviewKind } from "../components/ProjectPreview";
 
-export const metadata: Metadata = { title: "Work", description: "Selected software products, systems, dashboards, and web experiences by Joshua Uschock." };
+export const metadata: Metadata = {
+  title: "Work",
+  description: "Selected software products, platforms, dashboards, and interactive web experiences by Joshua Uschock.",
+};
 
 type Project = {
   name: string;
   type: string;
+  status: string;
+  role: string;
+  contribution: string;
   copy: string;
   tags: string[];
   href: string;
   link: string;
-  preview: PreviewKind;
+  preview?: PreviewKind;
+  imageSrc?: string;
+  imageAlt?: string;
+  objectPosition?: string;
 };
 
 const products: Project[] = [
-  { name:"Tide & Timber", type:"Interactive bilingual media concept", copy:"A cinematic English-and-Spanish editorial experience combining instant language switching, synchronized audio text, mobile-safe single-play video, responsive storytelling, and custom media controls.", tags:["Next.js","Bilingual UX","Timed audio","Responsive media"], href:"https://tide-and-timber-demo.juschock.chatgpt.site", link:"Experience the live build", preview:"tide" },
-  { name:"SunSun", type:"Multilingual publishing platform", copy:"A bright multilingual content experience bringing English, Spanish, French, Hindi, Bengali, and Tamil into one expressive interface.", tags:["Next.js","TypeScript","Internationalization","Editorial UI"], href:"https://www.sunsun.ai", link:"Visit SunSun", preview:"sunsun" },
-  { name:"PrepperGo", type:"Consumer SaaS platform", copy:"A preparedness platform bringing planning, inventories, resources, alerts, and subscriptions into one coherent product experience.", tags:["Next.js","Product engineering","Data modeling","Stripe"], href:"https://www.preppergo.com/", link:"Visit PrepperGo", preview:"prepper" },
-  { name:"Racoben Local AI", type:"Local engineering system", copy:"A private, local-first engineering workspace for scoped application work, serialized inference, reviewable diffs, verification, approvals, and controlled commits.", tags:["Python","Local LLMs","Systems design","Developer tooling"], href:"https://github.com/juschock", link:"GitHub profile", preview:"racoben" },
-  { name:"CauseBrief", type:"Productized service platform", copy:"A structured brief-to-deliverable workflow for small nonprofits and local campaigns, pairing a simple customer experience with a rigorous internal production system.", tags:["Next.js","Workflow design","Payments","Human QA"], href:"https://github.com/juschock/CauseBrief", link:"View repository", preview:"studio" },
-  { name:"File Management Dashboard", type:"Administrative web application", copy:"A data-dense file operations interface exploring secure organization, search, metadata, and high-volume administrative workflows.", tags:["Next.js","Prisma","Dashboard UI","Data tables"], href:"https://github.com/juschock/file_management_dashbrd", link:"View repository", preview:"ops" },
+  {
+    name: "PrepperGo",
+    type: "Consumer SaaS",
+    status: "Live product",
+    role: "Product & engineering lead",
+    contribution: "Product architecture, data modeling, interface system, subscriptions, and deployment.",
+    copy: "A household-readiness platform that turns supply lists into useful answers: food and water runway, attention items, expirations, and clear next actions.",
+    tags: ["Next.js", "Product engineering", "Data modeling", "Stripe"],
+    href: "https://www.preppergo.com/",
+    link: "Visit PrepperGo",
+    imageSrc: "/projects/preppergo-dashboard.jpg",
+    imageAlt: "The live PrepperGo dashboard showing household readiness tools",
+    objectPosition: "center top",
+  },
+  {
+    name: "Tide & Timber",
+    type: "Bilingual media experience",
+    status: "Interactive build",
+    role: "Designer & front-end engineer",
+    contribution: "Instant EN/ES switching, timestamped audio text, custom media controls, and mobile-safe playback behavior.",
+    copy: "A cinematic English-and-Spanish editorial experience built to demonstrate the exact media interactions required by a bilingual book-and-music platform.",
+    tags: ["Next.js", "Bilingual UX", "Timed audio", "Responsive media"],
+    href: "https://tide-and-timber-demo.juschock.chatgpt.site",
+    link: "Experience the live build",
+    preview: "tide",
+  },
+  {
+    name: "SunSun",
+    type: "Multilingual publishing",
+    status: "Live platform",
+    role: "Full-stack engineer",
+    contribution: "Responsive publishing system, multilingual content architecture, and editorial interface design.",
+    copy: "A multilingual content experience bringing English, Spanish, French, Hindi, Bengali, and Tamil into one expressive product.",
+    tags: ["Next.js", "TypeScript", "Internationalization", "Editorial UI"],
+    href: "https://www.sunsun.ai",
+    link: "Visit SunSun",
+    preview: "sunsun",
+  },
+  {
+    name: "Racoben Local AI",
+    type: "Private engineering system",
+    status: "Active development",
+    role: "Creator & systems engineer",
+    contribution: "Controlled agent workflows, serialized inference, reviewable diffs, verification gates, and local execution.",
+    copy: "A local-first engineering workspace for scoped application work where every change remains inspectable, verifiable, and under operator control.",
+    tags: ["Python", "Local LLMs", "Systems design", "Developer tooling"],
+    href: "https://github.com/juschock",
+    link: "GitHub profile",
+    preview: "racoben",
+  },
+  {
+    name: "CauseBrief",
+    type: "Service workflow platform",
+    status: "Product system",
+    role: "Product architect & engineer",
+    contribution: "Brief intake, deterministic production workflow, payments, and human quality control.",
+    copy: "A structured brief-to-deliverable workflow for small nonprofits and local campaigns, pairing a simple customer surface with rigorous production controls.",
+    tags: ["Next.js", "Workflow design", "Payments", "Human QA"],
+    href: "https://github.com/juschock/CauseBrief",
+    link: "View repository",
+    preview: "studio",
+  },
+  {
+    name: "File Management Dashboard",
+    type: "Administrative application",
+    status: "Open source",
+    role: "Full-stack engineer",
+    contribution: "Secure organization, search, metadata, and high-volume administrative workflows.",
+    copy: "A data-dense file operations interface designed around fast retrieval, legible metadata, and practical administration.",
+    tags: ["Next.js", "Prisma", "Dashboard UI", "Data tables"],
+    href: "https://github.com/juschock/file_management_dashbrd",
+    link: "View repository",
+    preview: "ops",
+  },
 ];
 
 export default function ProjectsPage() {
   return (
     <>
       <section className="site-shell page-hero">
+        <div className="page-kicker-row"><span>Selected work · 2011—2026</span><span>Products · Platforms · Experiments</span></div>
         <div className="page-hero-grid">
-          <div><div className="eyebrow">Selected work · 2011—2026</div><h1 className="page-title">A body of work,<br />not a template gallery.</h1></div>
-          <p className="lead">Production systems, SaaS products, internal tools, infrastructure programs, and interface experiments from a career spent building across the stack.</p>
+          <h1 className="page-title">A career spent making complex systems usable.</h1>
+          <p className="lead">Production products, cloud platforms, internal tools, infrastructure programs, and interface experiments—designed and engineered across the stack.</p>
         </div>
       </section>
 
-      <section className="site-shell section section-rule" id="products">
-        <div className="section-head"><div><div className="eyebrow">Products & platforms</div><h2 className="section-title">Shipped and<br />operational work.</h2></div><p className="lead">Representative products from independent engineering work. Some repositories remain private because the systems or client context are not public.</p></div>
+      <section className="site-shell section project-index" id="products">
+        <header className="index-heading">
+          <div><div className="eyebrow">Products &amp; platforms</div><h2>Selected builds</h2></div>
+          <p>A closer look at how product decisions, technical architecture, and interface design come together across the work.</p>
+        </header>
+
         <div className="project-list">
-          {products.map((project) => (
+          {products.map((project, index) => (
             <article className="project-row" key={project.name}>
-              <ProjectPreview kind={project.preview} />
+              <div className="project-row-index">{String(index + 1).padStart(2, "0")}</div>
+              <div className="project-media">
+                <ProjectPreview
+                  kind={project.preview}
+                  imageSrc={project.imageSrc}
+                  imageAlt={project.imageAlt}
+                  objectPosition={project.objectPosition}
+                />
+              </div>
               <div className="project-copy">
-                <div><div className="eyebrow">{project.type}</div><h2>{project.name}</h2><p>{project.copy}</p><div className="tag-row">{project.tags.map(tag => <span className="tag" key={tag}>{tag}</span>)}</div></div>
-                <div className="project-links"><a href={project.href} target="_blank" rel="noreferrer">{project.link} ↗</a></div>
+                <div>
+                  <div className="project-heading-row"><span className="project-status">{project.status}</span><span>{project.type}</span></div>
+                  <h2>{project.name}</h2>
+                  <p className="project-summary">{project.copy}</p>
+                  <dl className="project-detail-list">
+                    <div><dt>Role</dt><dd>{project.role}</dd></div>
+                    <div><dt>Contribution</dt><dd>{project.contribution}</dd></div>
+                  </dl>
+                  <div className="tag-row">{project.tags.map((tag) => <span className="tag" key={tag}>{tag}</span>)}</div>
+                </div>
+                <div className="project-links"><a href={project.href} target="_blank" rel="noreferrer">{project.link} <span aria-hidden="true">↗</span></a></div>
               </div>
             </article>
           ))}
         </div>
       </section>
 
-      <section className="section section-rule">
+      <section className="section section-subtle">
         <div className="site-shell">
-          <div className="section-head"><div><div className="eyebrow">Interface lab</div><h2 className="section-title">Range you can<br />actually open.</h2></div><p className="lead">Purpose-built concepts showing how different product categories demand different information architecture, interaction density, and visual language.</p></div>
+          <header className="index-heading">
+            <div><div className="eyebrow">Interface lab</div><h2>Open the range</h2></div>
+            <p>Interactive concepts built to explore different information densities, workflows, and product personalities.</p>
+          </header>
           <div className="work-grid">
-            <Link className="work-card" href="/lab/ops"><ProjectPreview kind="ops" /><div className="work-card-copy"><div className="eyebrow">SRE command center</div><h3>Northstar Operations</h3><p>Service health, deployments, incident signals, and operator actions in a compact responsive dashboard.</p><span className="view-link">Open live concept →</span></div></Link>
-            <Link className="work-card" href="/lab/field"><ProjectPreview kind="field" /><div className="work-card-copy"><div className="eyebrow">Field service platform</div><h3>Field Atlas</h3><p>A map-led dispatch surface paired with a mobile technician workflow.</p><span className="view-link">Open live concept →</span></div></Link>
-            <Link className="work-card" href="/lab/studio"><ProjectPreview kind="studio" /><div className="work-card-copy"><div className="eyebrow">Service business website</div><h3>Common Ground Studio</h3><p>An editorial, conversion-focused website with an entirely different composition and rhythm.</p><span className="view-link">Open live concept →</span></div></Link>
-            <Link className="work-card" href="/lab/finance"><ProjectPreview kind="finance" /><div className="work-card-copy"><div className="eyebrow">Financial analytics</div><h3>Signal Ledger</h3><p>Portfolio monitoring with restrained data visualization and fast scenario switching.</p><span className="view-link">Open live concept →</span></div></Link>
+            <Link className="work-card" href="/lab/ops"><ProjectPreview kind="ops" /><div className="work-card-copy"><div className="eyebrow">SRE command center · Concept</div><h3>Northstar Operations</h3><p>Service health, deployments, incident signals, and operator actions in a compact responsive dashboard.</p><span className="view-link">Open concept <span aria-hidden="true">→</span></span></div></Link>
+            <Link className="work-card" href="/lab/field"><ProjectPreview kind="field" /><div className="work-card-copy"><div className="eyebrow">Field service platform · Concept</div><h3>Field Atlas</h3><p>A map-led dispatch surface paired with a mobile technician workflow.</p><span className="view-link">Open concept <span aria-hidden="true">→</span></span></div></Link>
+            <Link className="work-card" href="/lab/studio"><ProjectPreview kind="studio" /><div className="work-card-copy"><div className="eyebrow">Service website · Concept</div><h3>Common Ground Studio</h3><p>An editorial, conversion-focused website with an intentionally different rhythm.</p><span className="view-link">Open concept <span aria-hidden="true">→</span></span></div></Link>
+            <Link className="work-card" href="/lab/finance"><ProjectPreview kind="finance" /><div className="work-card-copy"><div className="eyebrow">Financial analytics · Concept</div><h3>Signal Ledger</h3><p>Portfolio monitoring with restrained data visualization and fast scenario switching.</p><span className="view-link">Open concept <span aria-hidden="true">→</span></span></div></Link>
           </div>
         </div>
       </section>
