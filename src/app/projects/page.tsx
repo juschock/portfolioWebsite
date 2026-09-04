@@ -14,6 +14,7 @@ type Project = {
   role: string;
   contribution: string;
   copy: string;
+  proof: string;
   tags: string[];
   href: string;
   link: string;
@@ -31,6 +32,7 @@ const products: Project[] = [
     role: "Product & engineering lead",
     contribution: "Product architecture, data modeling, interface system, subscriptions, and deployment.",
     copy: "A household-readiness platform that turns supply lists into useful answers: food and water runway, attention items, expirations, and clear next actions.",
+    proof: "199 unit tests · 260+ browser checks · PostgreSQL and RLS-backed",
     tags: ["Next.js", "Product engineering", "Data modeling", "Stripe"],
     href: "https://www.preppergo.com/",
     link: "Visit PrepperGo",
@@ -45,6 +47,7 @@ const products: Project[] = [
     role: "Designer & front-end engineer",
     contribution: "Instant EN/ES switching, timestamped audio text, custom media controls, and mobile-safe playback behavior.",
     copy: "A cinematic English-and-Spanish editorial experience built to demonstrate the exact media interactions required by a bilingual book-and-music platform.",
+    proof: "2 languages · 40-second timed sequence · single-play media state",
     tags: ["Next.js", "Bilingual UX", "Timed audio", "Responsive media"],
     href: "https://tide-and-timber-demo.juschock.chatgpt.site",
     link: "Experience the live build",
@@ -57,6 +60,7 @@ const products: Project[] = [
     role: "Full-stack engineer",
     contribution: "Responsive publishing system, multilingual content architecture, and editorial interface design.",
     copy: "A multilingual content experience bringing English, Spanish, French, Hindi, Bengali, and Tamil into one expressive product.",
+    proof: "6 languages · responsive editorial system",
     tags: ["Next.js", "TypeScript", "Internationalization", "Editorial UI"],
     href: "https://www.sunsun.ai",
     link: "Visit SunSun",
@@ -69,6 +73,7 @@ const products: Project[] = [
     role: "Creator & systems engineer",
     contribution: "Controlled agent workflows, serialized inference, reviewable diffs, verification gates, and local execution.",
     copy: "A local-first engineering workspace for scoped application work where every change remains inspectable, verifiable, and under operator control.",
+    proof: "Local-first · controlled execution · reviewable diffs",
     tags: ["Python", "Local LLMs", "Systems design", "Developer tooling"],
     href: "https://github.com/juschock",
     link: "GitHub profile",
@@ -81,6 +86,7 @@ const products: Project[] = [
     role: "Product architect & engineer",
     contribution: "Brief intake, deterministic production workflow, payments, and human quality control.",
     copy: "A structured brief-to-deliverable workflow for small nonprofits and local campaigns, pairing a simple customer surface with rigorous production controls.",
+    proof: "Deterministic workflow · human quality gate",
     tags: ["Next.js", "Workflow design", "Payments", "Human QA"],
     href: "https://github.com/juschock/CauseBrief",
     link: "View repository",
@@ -93,6 +99,7 @@ const products: Project[] = [
     role: "Full-stack engineer",
     contribution: "Secure organization, search, metadata, and high-volume administrative workflows.",
     copy: "A data-dense file operations interface designed around fast retrieval, legible metadata, and practical administration.",
+    proof: "Searchable metadata · high-volume administration",
     tags: ["Next.js", "Prisma", "Dashboard UI", "Data tables"],
     href: "https://github.com/juschock/file_management_dashbrd",
     link: "View repository",
@@ -134,6 +141,7 @@ export default function ProjectsPage() {
                   <div className="project-heading-row"><span className="project-status">{project.status}</span><span>{project.type}</span></div>
                   <h2>{project.name}</h2>
                   <p className="project-summary">{project.copy}</p>
+                  <p className="project-proofline">{project.proof}</p>
                   <dl className="project-detail-list">
                     <div><dt>Role</dt><dd>{project.role}</dd></div>
                     <div><dt>Contribution</dt><dd>{project.contribution}</dd></div>
