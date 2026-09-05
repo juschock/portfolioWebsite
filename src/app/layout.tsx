@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
+import "./lab-experiences.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 

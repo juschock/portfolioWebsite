@@ -1,7 +1,17 @@
 "use client";
 
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import { useState } from "react";
+
+const loading = () => <div className="lab-loading">Loading interactive experience…</div>;
+const MarketExperience = dynamic(() => import("./experiences/MarketExperience"), { loading });
+const CivicExperience = dynamic(() => import("./experiences/CivicExperience"), { loading });
+const MarsExperience = dynamic(() => import("./experiences/MarsExperience"), { loading, ssr: false });
+const GridExperience = dynamic(() => import("./experiences/GridExperience"), { loading });
+const ContractExperience = dynamic(() => import("./experiences/ContractExperience"), { loading });
+
+export type LabKind = "ops" | "finance" | "field" | "studio" | "markets" | "civic" | "mars" | "grid" | "contracts";
 
 const configs = {
   ops: {
@@ -53,7 +63,12 @@ function Studio() {
   return <div className="lab-shell"><Topbar brand="COMMON / GROUND" /><div className="site-demo"><nav className="site-demo-nav"><strong>Common Ground Studio</strong><div className="site-demo-links"><span>Work</span><span>Process</span><span>Studio</span><span>Contact</span></div></nav><div className="site-demo-hero"><div><div className="eyebrow">Brand, web & environments</div><h1>Make your place<br /><em>mean something.</em></h1><p>We shape identities and digital spaces for organizations doing grounded, human work. Strategy first. Distinctive design. Nothing added without a reason.</p><div className="button-row"><button className="button button-primary">See selected work →</button><button className="button button-secondary">Our approach</button></div></div><div className="site-demo-card"><span className="eyebrow" style={{color:"#f4c970"}}>Project 07 · Public space</span><span className="number">7:14</span><h2>A neighborhood identity built around the hour the street comes alive.</h2></div></div></div></div>;
 }
 
-export default function LabExperience({ kind }: { kind: "ops" | "finance" | "field" | "studio" }) {
+export default function LabExperience({ kind }: { kind: LabKind }) {
+  if (kind === "markets") return <MarketExperience />;
+  if (kind === "civic") return <CivicExperience />;
+  if (kind === "mars") return <MarsExperience />;
+  if (kind === "grid") return <GridExperience />;
+  if (kind === "contracts") return <ContractExperience />;
   if (kind === "ops" || kind === "finance") return <Dashboard kind={kind} />;
   if (kind === "field") return <Field />;
   return <Studio />;

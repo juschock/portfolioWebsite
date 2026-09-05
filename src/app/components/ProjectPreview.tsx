@@ -8,6 +8,11 @@ export type PreviewKind =
   | "field"
   | "studio"
   | "finance"
+  | "markets"
+  | "civic"
+  | "mars"
+  | "grid"
+  | "contracts"
   | "systems";
 
 type ProjectPreviewProps = {
@@ -65,6 +70,11 @@ function SystemsPreview({ kind }: { kind: PreviewKind }) {
     finance: ["Value", "Signals", "Risk"],
     field: ["Teams", "Jobs", "Routes"],
     studio: ["Pages", "Leads", "Launch"],
+    markets: ["Price", "Signal", "Volume"],
+    civic: ["Homes", "Trips", "Canopy"],
+    mars: ["Speed", "Power", "Slope"],
+    grid: ["Load", "Reserve", "Alerts"],
+    contracts: ["Clauses", "High risk", "Resolved"],
     systems: ["Status", "Jobs", "Latency"],
   };
   const values: Record<string, [string, string, string]> = {
@@ -72,6 +82,11 @@ function SystemsPreview({ kind }: { kind: PreviewKind }) {
     finance: ["$2.48M", "12", "Low"],
     field: ["12", "18", "04"],
     studio: ["08", "31", "Ready"],
+    markets: ["$178.42", "Bullish", "1.8×"],
+    civic: ["4,116", "−34%", "27%"],
+    mars: ["22 km/h", "97%", "3°"],
+    grid: ["84%", "12%", "4"],
+    contracts: ["47", "02", "18"],
     systems: ["Healthy", "1,284", "42ms"],
   };
   const currentLabels = labels[kind] ?? labels.systems;
