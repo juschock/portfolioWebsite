@@ -158,8 +158,20 @@ export default function ProjectsPage() {
       <section className="section section-subtle">
         <div className="site-shell">
           <header className="index-heading">
-            <div><div className="eyebrow">Interface lab</div><h2>Open the range</h2></div>
-            <p>Interactive concepts built to explore different information densities, workflows, and product personalities.</p>
+            <div><div className="eyebrow">Interactive systems lab</div><h2>Five new technical experiences</h2></div>
+            <p>Working demonstrations of real-time data, geospatial decisions, 3D simulation, infrastructure resilience, and document intelligence.</p>
+          </header>
+          <div className="work-grid">
+            <Link className="work-card work-card-feature" href="/lab/mars"><ProjectPreview kind="mars" /><div className="work-card-copy"><div className="eyebrow">Browser-based 3D simulation · Playable</div><h3>Ares Traverse</h3><p>Drive a rover across a procedural Martian surface with real vehicle movement, terrain response, follow-camera behavior, mission waypoints, and live telemetry.</p><span className="view-link">Drive the rover <span aria-hidden="true">→</span></span></div></Link>
+            <Link className="work-card" href="/lab/markets"><ProjectPreview kind="markets" /><div className="work-card-copy"><div className="eyebrow">Streaming market intelligence · Interactive</div><h3>VectorAlpha</h3><p>A deterministic live-market replay with symbol switching, animated time-series data, order-book depth, and decision signals.</p><span className="view-link">Open market terminal <span aria-hidden="true">→</span></span></div></Link>
+            <Link className="work-card" href="/lab/civic"><ProjectPreview kind="civic" /><div className="work-card-copy"><div className="eyebrow">Urban decision support · Interactive</div><h3>CivicForge</h3><p>Test housing, transit, green-space, and parcel-level zoning decisions while projected outcomes update immediately.</p><span className="view-link">Plan a scenario <span aria-hidden="true">→</span></span></div></Link>
+            <Link className="work-card" href="/lab/grid"><ProjectPreview kind="grid" /><div className="work-card-copy"><div className="eyebrow">Critical infrastructure · Simulation</div><h3>Gridline</h3><p>Stress a regional power network, isolate assets, and sequence restoration while service and reserve metrics respond.</p><span className="view-link">Operate the grid <span aria-hidden="true">→</span></span></div></Link>
+            <Link className="work-card" href="/lab/contracts"><ProjectPreview kind="contracts" /><div className="work-card-copy"><div className="eyebrow">Document intelligence · Workbench</div><h3>ClauseMap</h3><p>Trace contract risks to exact language, compare related provisions, filter findings, and resolve a review.</p><span className="view-link">Review an agreement <span aria-hidden="true">→</span></span></div></Link>
+          </div>
+
+          <header className="index-heading archive-heading">
+            <div><div className="eyebrow">Earlier explorations</div><h2>Additional interface range</h2></div>
+            <p>Focused concepts spanning operations, field service, financial analytics, and conversion-led web design.</p>
           </header>
           <div className="work-grid">
             <Link className="work-card" href="/lab/ops"><ProjectPreview kind="ops" /><div className="work-card-copy"><div className="eyebrow">SRE command center · Concept</div><h3>Northstar Operations</h3><p>Service health, deployments, incident signals, and operator actions in a compact responsive dashboard.</p><span className="view-link">Open concept <span aria-hidden="true">→</span></span></div></Link>

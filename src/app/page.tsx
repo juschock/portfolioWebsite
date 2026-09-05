@@ -122,6 +122,22 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="section lab-launchpad-section">
+        <div className="site-shell">
+          <header className="lab-launchpad-heading">
+            <div><div className="eyebrow">Interactive systems lab</div><h2 className="section-title">Don’t just view the work. Operate it.</h2></div>
+            <p className="lead">Five live demonstrations spanning real-time analysis, decision support, 3D simulation, infrastructure, and document intelligence.</p>
+          </header>
+          <div className="lab-launchpad">
+            <Link href="/lab/mars"><span>01 · 3D simulation</span><strong>Ares Traverse</strong><small>Drive the Mars rover</small><i aria-hidden="true">↗</i></Link>
+            <Link href="/lab/markets"><span>02 · Streaming data</span><strong>VectorAlpha</strong><small>Read the market replay</small><i aria-hidden="true">↗</i></Link>
+            <Link href="/lab/civic"><span>03 · Decision support</span><strong>CivicForge</strong><small>Plan a city scenario</small><i aria-hidden="true">↗</i></Link>
+            <Link href="/lab/grid"><span>04 · Infrastructure</span><strong>Gridline</strong><small>Operate the power grid</small><i aria-hidden="true">↗</i></Link>
+            <Link href="/lab/contracts"><span>05 · Document systems</span><strong>ClauseMap</strong><small>Review an agreement</small><i aria-hidden="true">↗</i></Link>
+          </div>
+        </div>
+      </section>
+
       <section className="section proof-section">
         <div className="site-shell proof-layout">
           <div>
