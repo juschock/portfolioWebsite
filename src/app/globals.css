@@ -642,6 +642,10 @@ button:focus-visible {
 .contact-links { display: flex; flex-direction: column; justify-content: flex-end; }
 .contact-links a { padding: 18px 0; display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255, 255, 255, 0.16); font-weight: 740; }
 .contact-links a:hover { color: #9eb0ff; }
+.contact-link-label { display: grid; gap: 5px; }
+.contact-link-label strong { font: inherit; }
+.contact-link-label small { color: #91a0b3; font-size: 0.76rem; font-weight: 560; }
+.contact-links a:hover .contact-link-label small { color: #b8c5f8; }
 
 .site-footer { padding: 38px 0; border-top: 1px solid var(--line); }
 .footer-grid { display: flex; align-items: center; justify-content: space-between; gap: 20px; color: var(--muted); font-size: 0.82rem; }

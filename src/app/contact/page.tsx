@@ -8,7 +8,15 @@ export default function ContactPage() {
       <div className="contact-panel">
         <div><div className="eyebrow" style={{color:"#21120d"}}>Start a conversation</div><h1 className="page-title">Bring me the hard problem.</h1><p>I’m open to select senior engineering, architecture, DevOps/SRE, platform, product development, and technical leadership engagements. Share the mission, the constraints, and what “done” needs to mean.</p><p><strong>Based in Herndon, Virginia · available remotely and across the DC metro area.</strong></p></div>
         <div className="contact-links">
-          <a href="mailto:joshua.uschock@gmail.com"><span>Email</span><span>↗</span></a>
+          <a
+            href="https://mail.google.com/mail/?view=cm&fs=1&to=joshua.uschock@gmail.com&su=Project%20inquiry"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Email Joshua Uschock using Gmail"
+          >
+            <span className="contact-link-label"><strong>Email Joshua</strong><small>joshua.uschock@gmail.com · Opens Gmail</small></span>
+            <span aria-hidden="true">↗</span>
+          </a>
           <a href="https://linkedin.com/in/joshuauschock" target="_blank" rel="noreferrer"><span>LinkedIn</span><span>↗</span></a>
           <a href="https://github.com/juschock" target="_blank" rel="noreferrer"><span>GitHub</span><span>↗</span></a>
         </div>
